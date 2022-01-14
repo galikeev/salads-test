@@ -1,0 +1,9 @@
+.molecule {
+    width: 100px;
+    &__img {
+        width: 50px;
+        img {
+            width: 100%;
+        }
+    }
+}

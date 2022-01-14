@@ -1,0 +1,21 @@
+.salads {
+    &__wrapper {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__item {
+        border-radius: 8px;
+        box-shadow: 5px 5px 15px rgb(0 0 0 / 25%);
+        cursor: pointer;
+        padding: 35px 25px 16px 25px;
+        text-align: center;
+    }
+    &__molecule {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
