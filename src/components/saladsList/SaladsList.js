@@ -44,7 +44,7 @@ const SaladsList = () => {
 
     const renderItems = (arr) => {
         const items = arr.map((elem) => {
-            const molecules = elem.composition.map((id) => <MoleculeInfo moleculeId={id}/>);
+            const molecules = elem.composition.map((id, i) => <MoleculeInfo key={i} moleculeId={id}/>);
             return (
                 <li className="salads__item" key={elem._id}>
                     <div className="salads__name">{elem.title}</div>
