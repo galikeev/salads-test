@@ -5,8 +5,23 @@ const useSaladsService = () => {
 
     const _apiBase = 'http://test-job.webatom.ru/';
 
+    const getAllSalads = async () => {
+        const res = await request(`${_apiBase}salads`);
+        return res.result;
+    }
+
     const getAllMolecules = async () => {
         const res = await request(`${_apiBase}molecules`);
+        return res.result;
+    }
+
+    const getSalad = async (id) => {
+        const res = await request(`${_apiBase}salad/${id}`);
+        return res.result[0];
+    }
+
+    const getMolecule = async (id) => {
+        const res = await request(`${_apiBase}molecule/${id}`);
         return res.result;
     }
 
@@ -14,7 +29,10 @@ const useSaladsService = () => {
         clearError,
         process,
         setProcess,
-        getAllMolecules
+        getAllSalads,
+        getAllMolecules,
+        getSalad,
+        getMolecule
     }
 }
 

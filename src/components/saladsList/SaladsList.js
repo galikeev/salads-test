@@ -3,6 +3,9 @@ import { useState, useEffect, useMemo } from "react";
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import useSaladsService from "../../services/SaladsService";
+import MoleculeInfo from "../moleculeInfo/MoleculeInfo";
+
+import './saladsList.scss';
 
 const setContent = (process, Component) => {
     switch (process) {
@@ -19,55 +22,55 @@ const setContent = (process, Component) => {
     }
 }
 
-const SaladsList = (props) => {
+const SaladsList = () => {
     const [saladsList, setSaladsList] = useState([]);
-    const [newItemLoading, setNewItemLoading] = useState(false);
 
-    const {getAllMolecules, process, setProcess} = useSaladsService();
+    const {getAllSalads, process, setProcess} = useSaladsService();
 
     useEffect(() => {
         onRequest();
+        // eslint-disable-next-line
     }, [])
 
-    const onRequest = (initial) => {
-        initial ? setNewItemLoading(false) : setNewItemLoading(true)
-        getAllMolecules()
+    const onRequest = () => {
+        getAllSalads()
             .then(onSaladsListLoaded)
             .then(() => setProcess('confirmed'))
     }
 
-    const onSaladsListLoaded = (newSaladsList) => {
-        setSaladsList(saladsList => [...saladsList, ...newSaladsList]);
-        setNewItemLoading(() => false)
+    const onSaladsListLoaded = (saladsList) => {
+        setSaladsList(() => [...saladsList]);
     }
 
     const renderItems = (arr) => {
-        const items = arr.map((elem, i) => {
+        const items = arr.map((elem) => {
+            const molecules = elem.composition.map((id) => <MoleculeInfo moleculeId={id}/>);
             return (
-                <li key={elem._id}>
-                    <div>{elem.title}</div>
-                    <img src={elem.image} alt={elem.title} />
-                    <div>Цена: {elem.price}$</div>
-                    <div>Со скидкой: {elem.discount_price}$</div>
+                <li className="salads__item" key={elem._id}>
+                    <div className="salads__name">{elem.title}</div>
+                    <div className="salads__molecule">{molecules}</div>
+                    <div className="salads__price">Цена: {elem.price}$</div>
+                    <div className="salads__discount">Со скидкой: {elem.discount_price}$</div>
                 </li>
             )
         })
 
         return (
-            <ul>
+            <ul className="salads__wrapper">
                 {items}
             </ul>
         )
     }
 
     const elements = useMemo(() => {
-        return setContent(process, () => renderItems(saladsList), newItemLoading)
+        return setContent(process, () => renderItems(saladsList))
+        // eslint-disable-next-line
     }, [process])
 
     return (
-        <>
+        <div className="salads">
             {elements}
-        </>
+        </div>
     )
 }
 
