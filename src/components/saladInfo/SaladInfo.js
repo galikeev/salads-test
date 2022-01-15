@@ -60,13 +60,22 @@ const SaladInfo = (props) => {
 }
 
 const View = ({result}) => {
+
+    const {postSalad, setProcess} = useSaladsService();
+
     const {title} = result;
+
+    const onPostData = (salad) => {
+        postSalad()
+            .then(console.log(result))
+            .then(setProcess('confirmed'))
+    }
 
     return (
         <div className='salad__block'>
             <h2 className='salad__title'>Выбранный салат</h2>
             <div className='salad__name'>{title}</div>
-            <button className='salad__button'>Заказать</button>
+            <button onClick={() => onPostData(result)} className='salad__button'>Заказать</button>
         </div>
     )
 }

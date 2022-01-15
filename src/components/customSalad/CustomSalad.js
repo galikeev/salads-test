@@ -13,6 +13,7 @@ const CustomSalad = (props) => {
 
     const onPostData = (arr) => {
         postSalad()
+            .then(console.log(moleculesArray))
             .then(setProcess('confirmed'))
     }
 
