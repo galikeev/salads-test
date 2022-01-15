@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,SAAS,AAAC,CACN,KAAK,CAAE,KAAK,CAOf,AANI,AAAD,cAAM,AAAC,CACH,KAAK,CAAE,IAAI,CAId,AALA,AAEG,cAFE,CAEF,GAAG,AAAC,CACA,KAAK,CAAE,IAAI,CACd",
-    "sources": [
-        "../moleculeInfo/moleculeInfo.scss"
-    ],
-    "names": [],
-    "file": "moleculeInfo.min.css"
-}
