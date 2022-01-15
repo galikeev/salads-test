@@ -3,6 +3,8 @@ import { useState } from "react";
 import SaladsList from "../saladsList/SaladsList";
 import SaladInfo from "../saladInfo/SaladInfo";
 
+import '../../style/style.scss';
+
 const SaladsPage = () => {
 
     const [selectedSalad, setSelectedSalad] = useState(null)
@@ -12,11 +14,10 @@ const SaladsPage = () => {
     }
 
     return (
-        <>
+        <div className='main__page'>
             <SaladsList onSaladSelected={onSaladSelected}/>
-			<h2>Выбранный салат</h2>
 			<SaladInfo saladId={selectedSalad}/>
-        </>
+        </div>
     )
 }
 

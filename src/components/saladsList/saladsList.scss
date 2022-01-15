@@ -1,17 +1,27 @@
 .salads {
     font-size: 20px;
+    &__title {
+        text-align: center;
+    }
     &__wrapper {
+        padding-top: 50px;
         display: flex;
         gap: 30px;
         justify-content: center;
         flex-wrap: wrap;
     }
     &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         border-radius: 8px;
         box-shadow: 5px 5px 15px rgb(0 0 0 / 25%);
-        cursor: pointer;
         padding: 35px 25px 16px 25px;
-        width: 500px;
+        width: 300px;
+        min-height: 450px;
+    }
+    &__name {
+        text-align: center;
     }
     &__structure {
         padding-top: 20px;
@@ -20,7 +30,16 @@
         padding-top: 20px;
     }
     &__button {
+        cursor: pointer;
         width: 120px;
         height: 40px;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+        color: #fff;
+        background-color: #1fa19b;
+        border: 1px solid rgb( 33, 126, 74 );
+        &:hover {
+            background-color: #1a8681;
+        }
     }
 }

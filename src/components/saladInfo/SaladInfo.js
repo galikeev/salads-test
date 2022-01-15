@@ -51,8 +51,11 @@ const SaladInfo = (props) => {
     }
 
     return (
-        <div>
-            {setContent(process, View, salad)}
+        <div className='salad'>
+            <h2 className='salad__title'>Выбранный салат</h2>
+            <div className="salad__wrapper">
+                {setContent(process, View, salad)}
+            </div>
         </div>
     )
 }
@@ -61,7 +64,10 @@ const View = ({result}) => {
     const {title} = result;
 
     return (
-        <div className='salad'>{title}</div>
+        <div className='salad__block'>
+            <div className='salad__name'>{title}</div>
+            <button className='salad__button'>Заказать</button>
+        </div>
     )
 }
 
