@@ -1,9 +1,9 @@
 .salads {
+    font-size: 20px;
     &__wrapper {
         display: flex;
         gap: 30px;
         justify-content: center;
-        align-items: center;
         flex-wrap: wrap;
     }
     &__item {
@@ -11,11 +11,12 @@
         box-shadow: 5px 5px 15px rgb(0 0 0 / 25%);
         cursor: pointer;
         padding: 35px 25px 16px 25px;
-        text-align: center;
+        width: 500px;
     }
-    &__molecule {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    &__structure {
+        padding-top: 20px;
+    }
+    &__price {
+        padding-top: 20px;
     }
 }
