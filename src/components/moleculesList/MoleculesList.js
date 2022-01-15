@@ -80,7 +80,7 @@ const MoleculesList = () => {
             <h2>Создай собственный салат</h2>
             <h3>Выбери ингридиенты</h3>
             {elements}
-            <div>Твой салат</div>
+            <h2>Твой салат</h2>
             <CustomSalad moleculesArray={selectedMolecules}/>
         </div>
     )
