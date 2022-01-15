@@ -17,7 +17,7 @@ const useSaladsService = () => {
 
     const getSalad = async (id) => {
         const res = await request(`${_apiBase}salad/${id}`);
-        return res.result[0];
+        return res.result;
     }
 
     const getMolecule = async (id) => {
