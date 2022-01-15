@@ -1,10 +1,25 @@
-import MoleculesList from "../moleculesList/MoleculesList";
+import { useState } from "react";
 
-const MoleculesPage = () => {
+import MoleculesList from "../moleculesList/MoleculesList";
+import CustomSalad from "../customSalad/CustomSalad";
+
+const MoleculesPage = (props) => {
+
+    const [selectedMolecules, setSelectedMolecules] = useState([]);
+
+    const onSelectedMolecules = (newId) => {
+        setSelectedMolecules(id => [...id, newId])
+    }
+
+    const onDeleteMolecules = (id) => {
+        setSelectedMolecules(selectedMolecules.filter(elem => elem !== id))
+    }
+
     return (
-        <>
-			<MoleculesList/>
-        </>
+        <div className='main__page'>
+			<MoleculesList onSelectedMolecules={onSelectedMolecules}/>
+            <CustomSalad moleculesArray={selectedMolecules} onDeleteMolecules={onDeleteMolecules}/>
+        </div>
     )
 }
 

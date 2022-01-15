@@ -52,7 +52,6 @@ const SaladInfo = (props) => {
 
     return (
         <div className='salad'>
-            <h2 className='salad__title'>Выбранный салат</h2>
             <div className="salad__wrapper">
                 {setContent(process, View, salad)}
             </div>
@@ -65,6 +64,7 @@ const View = ({result}) => {
 
     return (
         <div className='salad__block'>
+            <h2 className='salad__title'>Выбранный салат</h2>
             <div className='salad__name'>{title}</div>
             <button className='salad__button'>Заказать</button>
         </div>
