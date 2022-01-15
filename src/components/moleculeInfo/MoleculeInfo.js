@@ -61,11 +61,15 @@ const View = ({result}) => {
 
     return (
         <div className='molecule'>
-            <div className='molecule__name'>{title}</div>
-            <div className='molecule__price'>{price}</div>
-            <div className='molecule__discount'>{discount_price}</div>
-            <div className='molecule__img'>
-                <img src={image} alt="d" />
+            <div className='molecule__block'>
+                <div className='molecule__name'>{title}</div>
+                <div className='molecule__img'>
+                    <img src={image} alt="d" />
+                </div>
+            </div>
+            <div>
+                <div className='molecule__price'>Цена молекулы: {price}$</div>
+                <div className='molecule__discount'>Цена со скидкой: {discount_price}$</div>
             </div>
         </div>
     )
