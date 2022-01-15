@@ -48,6 +48,10 @@ const MoleculesList = () => {
         setMoleculesList(() => [...moleculesList]);
     }
 
+    const onDeleteMolecules = (id) => {
+        setSelectedMolecules(selectedMolecules.filter(elem => elem !== id))
+    }
+
     const renderItems = (arr) => {
         const items = arr.map((elem) => {
             return (
@@ -78,10 +82,9 @@ const MoleculesList = () => {
     return (
         <div className="molecules">
             <h2>Создай собственный салат</h2>
-            <h3>Выбери ингридиенты</h3>
+            <h3>Выбери ингредиенты</h3>
             {elements}
-            <h2>Твой салат</h2>
-            <CustomSalad moleculesArray={selectedMolecules}/>
+            <CustomSalad moleculesArray={selectedMolecules} onDeleteMolecules={onDeleteMolecules}/>
         </div>
     )
 }
