@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import SaladsList from "../saladsList/SaladsList";
 import SaladInfo from "../saladInfo/SaladInfo";
+import MoleculesList from "../moleculesList/MoleculesList";
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
 			<SaladsList onSaladSelected={onSaladSelected}/>
 			<h2>Выбранный салат</h2>
 			<SaladInfo saladId={selectedSalad}/>
+			<MoleculesList/>
 		</div>
 	);
 }

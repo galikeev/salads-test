@@ -3,6 +3,7 @@ import { useState, useEffect, useMemo } from "react";
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import useSaladsService from "../../services/SaladsService";
+import CustomSalad from "../customSalad/CustomSalad";
 
 import './moleculesList.scss';
 
@@ -79,6 +80,8 @@ const MoleculesList = () => {
             <h2>Создай собственный салат</h2>
             <h3>Выбери ингридиенты</h3>
             {elements}
+            <div>Твой салат</div>
+            <CustomSalad moleculesArray={selectedMolecules}/>
         </div>
     )
 }
