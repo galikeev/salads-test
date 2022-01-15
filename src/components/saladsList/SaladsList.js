@@ -46,12 +46,13 @@ const SaladsList = (props) => {
         const items = arr.map((elem) => {
             const molecules = elem.composition.map((id, i) => <MoleculeInfo key={i} moleculeId={id}/>);
             return (
-                <li onClick={() => props.onSaladSelected(elem._id)} className="salads__item" key={elem._id}>
+                <li className="salads__item" key={elem._id}>
                     <div className="salads__name">Салат: {elem.title}</div>
                     <div className="salads__structure">Состав:</div>
                     <div className="salads__molecule">{molecules}</div>
                     <div className="salads__price">Цена: {elem.price}$</div>
                     <div className="salads__discount">Со скидкой: {elem.discount_price}$</div>
+                    <button onClick={() => props.onSaladSelected(elem._id)} className="salads__button">Выбрать</button>
                 </li>
             )
         })
