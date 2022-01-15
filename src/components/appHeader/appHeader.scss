@@ -1,0 +1,32 @@
+.app {
+    &__header {
+        width: 100%;
+        padding: 50px;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(31, 161, 155);
+    }
+    &__title {
+        font-weight: bold;
+        font-size: 28px;
+        line-height: 37px;
+        &:hover {
+            color: #fff;
+        }
+    }
+    &__menu {
+        ul {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 32px;
+            li {
+                margin: 0 8px;
+                a:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
