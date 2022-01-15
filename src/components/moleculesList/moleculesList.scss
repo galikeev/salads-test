@@ -1,0 +1,11 @@
+.molecules {
+    &__wrapper {
+        display: flex;
+    }
+    &__img {
+        width: 50px;
+        img {
+            width: 100%;
+        }
+    }
+}
