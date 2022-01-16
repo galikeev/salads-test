@@ -25,18 +25,8 @@ const useSaladsService = () => {
         return res.result;
     }
 
-    const postSalad = async (id) => {
-        const res = await request('http://test-job.webatom.ru/order', 'POST', JSON.stringify({
-            "molecules": [
-                {
-                    "id": "61a49832cd52c5df4d36396c",
-                    "qty": 1
-                },
-                {
-                    "id": "61a49832cd52c5df4d36396a",
-                    "qty": 1
-                }
-            ]}))
+    const postSalad = async (data) => {
+        const res = await request('http://test-job.webatom.ru/order', 'POST', JSON.stringify({data}))
         console.log(res)
         return res;
     }
