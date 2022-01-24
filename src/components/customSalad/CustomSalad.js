@@ -12,10 +12,15 @@ const CustomSalad = (props) => {
 
     const {postSalad, process, setProcess} = useSaladsService();
 
-    const onPostData = (arr) => {
-        postSalad()
-            .then(console.log(moleculesArray))
-            .then(setProcess('confirmed'))
+    const onPostData = (e, arr) => {
+        e.preventDefault()
+        if (arr.length > 0) {
+            postSalad()
+                .then(arr)
+                .then(setProcess('confirmed'))
+        } else {
+            return null
+        }
     }
 
     const elems = moleculesArray.map((elem, i) => {
@@ -34,9 +39,11 @@ const CustomSalad = (props) => {
     return (
         <div className='custom'>
             <h2 className='custom__title'>Твой собранный салат</h2>
-            {renders}
-            {process === 'confirmed' ? <div style={{'textAlign' : 'center', 'marginTop' : '30px'}}>Заказ отправлен</div> : null}
-            <button onClick={() => onPostData(moleculesArray)} className='custom__button custom__button_big'>Заказать</button>
+            <form onSubmit={(e) => onPostData(e, moleculesArray)}>
+                {renders}
+                {process === 'confirmed' ? <div style={{'textAlign' : 'center', 'marginTop' : '30px'}}>Заказ отправлен</div> : null}
+                <button className='custom__button custom__button_big'>Заказать</button>
+            </form>
         </div>
     )
 

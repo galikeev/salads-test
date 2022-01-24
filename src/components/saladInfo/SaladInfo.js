@@ -65,19 +65,20 @@ const View = ({result}) => {
 
     const {title} = result;
 
-    const onPostData = (result) => {
+    const onPostData = (e, result) => {
+        e.preventDefault();
         postSalad()
             .then(console.log(result))
             .then(setProcess('confirmed'))
     }
 
     return (
-        <div className='salad__block'>
+        <form onSubmit={(e) => onPostData(e, result)} className='salad__block'>
             <h2 className='salad__title'>Выбранный салат</h2>
             <div className='salad__name'>{title}</div>
             {process === 'confirmed' ? <div style={{'textAlign' : 'center', 'marginTop' : '30px'}}>Заказ отправлен</div> : null}
-            <button onClick={() => onPostData(result)} className='salad__button'>Заказать</button>
-        </div>
+            <button className='salad__button'>Заказать</button>
+        </form>
     )
 }
 
